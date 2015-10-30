@@ -1,22 +1,21 @@
 //
-//  YourTripViewController.swift
+//  AddWaypointViewController.swift
 //  TripPlanner
 //
 //  Created by Ryan Kim on 10/30/15.
 //  Copyright © 2015 RKProduction. All rights reserved.
 //
-
-import Foundation
 import UIKit
+import Foundation
 
-class YourTripViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class AddWaypointViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var tripTableView: UITableView!
-    var items: [String] = ["Westwood", "Culver City", "Brentwood"]
+    @IBOutlet weak var waypointTableView: UITableView!
+    var items: [String] = ["Dummy data1", "Dummy data2", "Dummy data3"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tripTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "waypointcell")
+        self.waypointTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "addWaypointCell")
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -24,15 +23,14 @@ class YourTripViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = self.tripTableView.dequeueReusableCellWithIdentifier("waypointcell")! as UITableViewCell
+        let cell = self.waypointTableView.dequeueReusableCellWithIdentifier("addWaypointCell")! as UITableViewCell
         cell.textLabel?.text = self.items[indexPath.row]
         
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-      performSegueWithIdentifier("segueToShowWayPoint", sender: nil)        
+        print("hohoho")
     }
     
 }
-
