@@ -95,8 +95,8 @@
 				270F57C01BE2CE1600213EE8 /* TripViewController.swift */,
 				270F57C61BE3533500213EE8 /* YourTripViewController.swift */,
 				270F57C91BE3F79000213EE8 /* AddTripViewController.swift */,
-				270F57CB1BE3F9B300213EE8 /* WayPointInfoViewController.swift */,
 				270F57CF1BE40E2800213EE8 /* AddWaypointViewController.swift */,
+				270F57CB1BE3F9B300213EE8 /* WayPointInfoViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";

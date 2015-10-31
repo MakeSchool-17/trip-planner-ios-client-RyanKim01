@@ -19,6 +19,11 @@ class TripViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.tripTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "tripcell")
     }
     
+    
+    
+    
+    
+    //MARK: TablveViewDelegat/DataSource
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
          return self.items.count
     }

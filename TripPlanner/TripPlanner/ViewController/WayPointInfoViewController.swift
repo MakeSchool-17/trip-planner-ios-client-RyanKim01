@@ -11,4 +11,18 @@ import Foundation
 
 class WayPointInfoViewController: UIViewController {
 
+    @IBOutlet weak var searchBar: UISearchBar!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        searchBar.delegate = self
+    }
+    
 }
+
+
+extension WayPointInfoViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+}
+

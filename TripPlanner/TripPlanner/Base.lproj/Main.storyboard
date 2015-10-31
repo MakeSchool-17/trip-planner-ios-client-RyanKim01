@@ -211,6 +211,7 @@ Travel Date: 10/27/15</string>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="aut-Sv-nYl"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="waypointSearchBar" destination="Yzc-aZ-PVb" id="5bQ-Kh-7Nw"/>
                         <outlet property="waypointTableView" destination="QWZ-96-oyz" id="xKm-6n-FCw"/>
                     </connections>
                 </viewController>
@@ -282,6 +283,9 @@ Travel Date: 10/27/15</string>
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="searchBar" destination="Eyb-3A-MYg" id="afp-kA-W2z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nmf-e0-DIk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -308,6 +312,9 @@ Travel Date: 10/27/15</string>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wq7-h5-vTm">
                                 <rect key="frame" x="260" y="285" width="80" height="30"/>
                                 <state key="normal" title="Get Started"/>
+                                <connections>
+                                    <segue destination="0ue-YV-E4B" kind="show" id="Rg4-Sj-PCm"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -371,7 +378,7 @@ Travel Date: 10/27/15</string>
                         <barButtonItem key="rightBarButtonItem" title="Add" id="vBp-ra-cjf"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="addTripTextField" destination="NzM-qC-uKb" id="wwY-mq-Ych"/>
+                        <outlet property="addTripTextField" destination="NzM-qC-uKb" id="RKo-h9-i8V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0rV-2o-jxg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -398,6 +405,6 @@ Travel Date: 10/27/15</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="V1r-cl-QOp"/>
+        <segue reference="Rg4-Sj-PCm"/>
     </inferredMetricsTieBreakers>
 </document>

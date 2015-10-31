@@ -8,16 +8,22 @@
 import UIKit
 import Foundation
 
-class AddWaypointViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class AddWaypointViewController: UIViewController, UITableViewDataSource {
     
+    @IBOutlet weak var waypointSearchBar: UISearchBar!
     @IBOutlet weak var waypointTableView: UITableView!
     var items: [String] = ["Dummy data1", "Dummy data2", "Dummy data3"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        waypointSearchBar.delegate = self
         self.waypointTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "addWaypointCell")
     }
     
+    
+    
+    
+    //MARK: TablveViewDelegat/DataSource
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.items.count
     }
@@ -33,4 +39,11 @@ class AddWaypointViewController: UIViewController, UITableViewDelegate, UITableV
         print("hohoho")
     }
     
+}
+
+
+extension AddWaypointViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        waypointSearchBar.resignFirstResponder()
+    }
 }

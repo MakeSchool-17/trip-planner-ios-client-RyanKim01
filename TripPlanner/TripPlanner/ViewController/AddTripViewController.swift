@@ -16,6 +16,7 @@ class AddTripViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.addTripTextField.delegate = self
     }
 }
 
