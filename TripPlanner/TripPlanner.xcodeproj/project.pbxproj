@@ -27,6 +27,7 @@
 		27D6E57B1BE0009C00E2A33C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27D6E5791BE0009C00E2A33C /* LaunchScreen.storyboard */; };
 		27D6E5861BE0009C00E2A33C /* TripPlannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D6E5851BE0009C00E2A33C /* TripPlannerTests.swift */; };
 		27D6E5911BE0009C00E2A33C /* TripPlannerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D6E5901BE0009C00E2A33C /* TripPlannerUITests.swift */; };
+		F5D99A5BE4CB8097A6919B54 /* Pods_TripPlanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC99F1FA699815D452B3A5DA /* Pods_TripPlanner.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,9 @@
 		27D6E58C1BE0009C00E2A33C /* TripPlannerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TripPlannerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		27D6E5901BE0009C00E2A33C /* TripPlannerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPlannerUITests.swift; sourceTree = "<group>"; };
 		27D6E5921BE0009C00E2A33C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A3FDBA62F5B6E45089C47CD4 /* Pods-TripPlanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TripPlanner.release.xcconfig"; path = "Pods/Target Support Files/Pods-TripPlanner/Pods-TripPlanner.release.xcconfig"; sourceTree = "<group>"; };
+		AC99F1FA699815D452B3A5DA /* Pods_TripPlanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TripPlanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB940AE704D36F7071CCBC91 /* Pods-TripPlanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TripPlanner.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TripPlanner/Pods-TripPlanner.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				270F57CE1BE4007D00213EE8 /* MapKit.framework in Frameworks */,
+				F5D99A5BE4CB8097A6919B54 /* Pods_TripPlanner.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,6 +140,8 @@
 				27D6E5841BE0009C00E2A33C /* TripPlannerTests */,
 				27D6E58F1BE0009C00E2A33C /* TripPlannerUITests */,
 				27D6E56B1BE0009B00E2A33C /* Products */,
+				4CE4FB6A78C394D1E800A25B /* Pods */,
+				9247C47A757BC4499EF05B25 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -181,6 +188,23 @@
 			path = TripPlannerUITests;
 			sourceTree = "<group>";
 		};
+		4CE4FB6A78C394D1E800A25B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BB940AE704D36F7071CCBC91 /* Pods-TripPlanner.debug.xcconfig */,
+				A3FDBA62F5B6E45089C47CD4 /* Pods-TripPlanner.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9247C47A757BC4499EF05B25 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AC99F1FA699815D452B3A5DA /* Pods_TripPlanner.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -188,9 +212,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 27D6E5951BE0009C00E2A33C /* Build configuration list for PBXNativeTarget "TripPlanner" */;
 			buildPhases = (
+				790609A4C3C18CAE89761FD7 /* Check Pods Manifest.lock */,
 				27D6E5661BE0009B00E2A33C /* Sources */,
 				27D6E5671BE0009B00E2A33C /* Frameworks */,
 				27D6E5681BE0009B00E2A33C /* Resources */,
+				3395B362B4554CA46F5556A6 /* Embed Pods Frameworks */,
+				FD8E3836B23A7F02C58585C4 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -312,6 +339,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3395B362B4554CA46F5556A6 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TripPlanner/Pods-TripPlanner-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		790609A4C3C18CAE89761FD7 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FD8E3836B23A7F02C58585C4 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TripPlanner/Pods-TripPlanner-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		27D6E5661BE0009B00E2A33C /* Sources */ = {
@@ -470,8 +545,10 @@
 		};
 		27D6E5961BE0009C00E2A33C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB940AE704D36F7071CCBC91 /* Pods-TripPlanner.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = TripPlanner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.RKProduction.TripPlanner;
@@ -481,8 +558,10 @@
 		};
 		27D6E5971BE0009C00E2A33C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A3FDBA62F5B6E45089C47CD4 /* Pods-TripPlanner.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = TripPlanner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.RKProduction.TripPlanner;
