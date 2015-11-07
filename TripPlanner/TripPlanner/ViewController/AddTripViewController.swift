@@ -13,7 +13,6 @@ class AddTripViewController: UIViewController {
 
     @IBOutlet weak var addTripTextField: UITextField!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addTripTextField.delegate = self

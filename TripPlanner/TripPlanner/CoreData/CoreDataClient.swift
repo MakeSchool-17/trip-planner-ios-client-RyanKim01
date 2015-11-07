@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import GoogleMaps
 
 class CoreDataClient {
   
@@ -17,6 +18,7 @@ class CoreDataClient {
     self.managedObjectContext = managedObjectContext
   }
   
+  //MARK: Trips
   func allTrips() -> [Trip] {
     let fetchRequest = NSFetchRequest(entityName: "Trip")
     let trips = try! managedObjectContext.executeFetchRequest(fetchRequest) as! [Trip]
@@ -50,4 +52,29 @@ class CoreDataClient {
         }
     }
   
+    //MARK: Waypoints
+    func allWaypoints() -> [Waypoint] {
+        let fetchRequest = NSFetchRequest(entityName: "Waypoint")
+        let waypoints = try! managedObjectContext.executeFetchRequest(fetchRequest) as! [Waypoint]
+        
+        return waypoints
+    }
+    
+    func saveWaypoints(place: GMSPlace) -> () {
+        let waypoint = NSEntityDescription.insertNewObjectForEntityForName("Waypoint",
+            inManagedObjectContext: managedObjectContext) as! Waypoint
+        waypoint.name = place.name
+        waypoint.latitude = place.coordinate.latitude
+        waypoint.longitude = place.coordinate.longitude
+        waypoint.address = place.formattedAddress
+        waypoint.placeID = place.placeID
+        do {
+            try self.managedObjectContext.save()
+        } catch let error as NSError {
+            assertionFailure("Error saving context: \(error), \(error.userInfo)")
+        } catch {
+            assertionFailure("Undefined error")
+        }
+    }
+    
 }

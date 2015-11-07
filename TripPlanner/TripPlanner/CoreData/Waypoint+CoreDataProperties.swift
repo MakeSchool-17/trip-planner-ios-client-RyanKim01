@@ -15,6 +15,8 @@ import CoreData
 extension Waypoint {
 
     @NSManaged var latitude: NSNumber?
+    @NSManaged var address: String?
+    @NSManaged var placeID: String?
     @NSManaged var longitude: NSNumber?
     @NSManaged var name: String?
     @NSManaged var trip: NSManagedObject?

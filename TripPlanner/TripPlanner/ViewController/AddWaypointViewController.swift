@@ -16,14 +16,18 @@ class AddWaypointViewController: UIViewController {
     @IBOutlet weak var waypointSearchBar: UISearchBar!
     @IBOutlet weak var waypointTableView: UITableView!
     var prediction: [GMSAutocompletePrediction?] = []
-    
+    var place: GMSPlace!
+    var coreDataStack = CoreDataStack(stackType: .SQLite)
+
     override func viewDidLoad() {
         super.viewDidLoad()
         waypointSearchBar.delegate = self
         locationManager.delegate = self
+        mapView.delegate = self
         locationManager.requestWhenInUseAuthorization()
         placesClient = GMSPlacesClient()
         self.waypointTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "addWaypointCell")
+        
     }
     
     func placeAutocomplete(searchtext: String) {
@@ -43,8 +47,19 @@ class AddWaypointViewController: UIViewController {
             }
             self.waypointTableView.reloadData()
         })
+    }
+    
+    @IBAction func saveButtonPressed(sender: AnyObject) {
+        do {
+            try CoreDataClient(managedObjectContext: coreDataStack.managedObjectContext).saveWaypoints(self.place)
+        } catch let error as NSError  {
+            print("Could not save \(error), \(error.userInfo)")
+        }
+        navigationController?.popViewControllerAnimated(true)
         
     }
+    
+    
     
     
 }
@@ -74,7 +89,34 @@ extension AddWaypointViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print("hohoho")
+        let placeID = prediction[indexPath.row]?.placeID
+        if let placeID = placeID {
+        placesClient!.lookUpPlaceID(placeID, callback: { (place: GMSPlace?, error: NSError?) -> Void in
+            if let error = error {
+                print("lookup place id query error: \(error.localizedDescription)")
+                return
+            }
+            
+            if let place = place {
+                print("Place name \(place.name)")
+                print("Place address \(place.formattedAddress)")
+                print("Place placeID \(place.placeID)")
+                print("Place attributions \(place.attributions)")
+                self.place = place
+
+                var marker = GMSMarker()
+                marker.position = place.coordinate
+                marker.title = place.name
+                marker.map = self.mapView
+                
+                self.mapView.animateToLocation(marker.position)
+                
+            } else {
+                print("No place details for \(placeID)")
+            }
+        })
+        }
+        
     }
 }
 
@@ -97,32 +139,28 @@ extension AddWaypointViewController: UISearchBarDelegate {
 
 
 // MARK: - CLLocationManagerDelegate
-//1
 extension AddWaypointViewController: CLLocationManagerDelegate {
-    // 2
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        // 3
         if status == .AuthorizedWhenInUse {
-            
-            // 4
             locationManager.startUpdatingLocation()
-            
-            //5
-            mapView.myLocationEnabled = true
-            mapView.settings.myLocationButton = true
+            if let mapview = mapView {
+            mapview.myLocationEnabled = true
+            mapview.settings.myLocationButton = true
+            }
         }
     }
     
-    // 6
+
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
-            
-            // 7
             mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
-            
-            // 8
             locationManager.stopUpdatingLocation()
         }
         
     }
+}
+
+//MARK: GMSMapViewDelegate
+extension AddWaypointViewController: GMSMapViewDelegate {
+    
 }

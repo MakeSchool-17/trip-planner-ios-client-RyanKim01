@@ -20,6 +20,7 @@
 		2795EA661BE827AD000EE866 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2795EA621BE827AD000EE866 /* Trip.swift */; };
 		2795EA6C1BE83149000EE866 /* CoreDataClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2795EA6A1BE83149000EE866 /* CoreDataClient.swift */; };
 		2795EA6D1BE83149000EE866 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2795EA6B1BE83149000EE866 /* CoreDataStack.swift */; };
+		27A22B661BED4160001D7C71 /* PlaceMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A22B651BED4160001D7C71 /* PlaceMarker.swift */; };
 		27D6E56E1BE0009C00E2A33C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D6E56D1BE0009B00E2A33C /* AppDelegate.swift */; };
 		27D6E5731BE0009C00E2A33C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27D6E5711BE0009C00E2A33C /* Main.storyboard */; };
 		27D6E5761BE0009C00E2A33C /* TripPlanner.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 27D6E5741BE0009C00E2A33C /* TripPlanner.xcdatamodeld */; };
@@ -61,6 +62,7 @@
 		2795EA621BE827AD000EE866 /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		2795EA6A1BE83149000EE866 /* CoreDataClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataClient.swift; sourceTree = "<group>"; };
 		2795EA6B1BE83149000EE866 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		27A22B651BED4160001D7C71 /* PlaceMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceMarker.swift; sourceTree = "<group>"; };
 		27D6E56A1BE0009B00E2A33C /* TripPlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TripPlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27D6E56D1BE0009B00E2A33C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27D6E5721BE0009C00E2A33C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -132,6 +134,14 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
+		27A22B641BED4136001D7C71 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				27A22B651BED4160001D7C71 /* PlaceMarker.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		27D6E5611BE0009B00E2A33C = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +170,7 @@
 			children = (
 				27D6E56D1BE0009B00E2A33C /* AppDelegate.swift */,
 				270F57C81BE3535B00213EE8 /* ViewController */,
+				27A22B641BED4136001D7C71 /* Model */,
 				2795EA5E1BE82785000EE866 /* CoreData */,
 				27D6E5711BE0009C00E2A33C /* Main.storyboard */,
 				27D6E5771BE0009C00E2A33C /* Assets.xcassets */,
@@ -394,6 +405,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2795EA661BE827AD000EE866 /* Trip.swift in Sources */,
+				27A22B661BED4160001D7C71 /* PlaceMarker.swift in Sources */,
 				2795EA6C1BE83149000EE866 /* CoreDataClient.swift in Sources */,
 				270F57CA1BE3F79000213EE8 /* AddTripViewController.swift in Sources */,
 				270F57C71BE3533500213EE8 /* YourTripViewController.swift in Sources */,

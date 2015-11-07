@@ -158,7 +158,7 @@ Travel Date: 10/27/15</string>
         <!--Add Waypoint-->
         <scene sceneID="dzI-hT-Xt5">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="0ue-YV-E4B" customClass="AddWaypointViewController" customModule="TripPlanner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="0ue-YV-E4B" customClass="AddWaypointViewController" customModule="TripPlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bhF-WQ-7nN"/>
                         <viewControllerLayoutGuide type="bottom" id="Z9K-Ji-pM1"/>
@@ -167,59 +167,65 @@ Travel Date: 10/27/15</string>
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QWZ-96-oyz">
-                                <rect key="frame" x="0.0" y="108" width="600" height="214"/>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Wz6-eB-ALN">
+                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="j3Y-Wc-Wmg">
+                                <rect key="frame" x="0.0" y="108" width="600" height="243"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="addWaypointCell" id="sXo-ZL-46U">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="addWaypointCell" id="96T-yC-Z1a">
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sXo-ZL-46U" id="G7O-TQ-Nk8">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="96T-yC-Z1a" id="Mkf-4F-n7b">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="0ue-YV-E4B" id="Bgg-DA-lTB"/>
-                                    <outlet property="delegate" destination="0ue-YV-E4B" id="gmb-QA-Jws"/>
+                                    <outlet property="dataSource" destination="0ue-YV-E4B" id="qF5-Qt-qZN"/>
+                                    <outlet property="delegate" destination="0ue-YV-E4B" id="DBj-jm-cxs"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cwA-9O-2t0" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="321" width="600" height="279"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y10-Lb-m8p" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="350" width="600" height="250"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Yzc-aZ-PVb">
-                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="cwA-9O-2t0" secondAttribute="trailing" id="6Ug-Ug-tZv"/>
-                            <constraint firstAttribute="trailing" secondItem="QWZ-96-oyz" secondAttribute="trailing" id="FyO-tG-uEo"/>
-                            <constraint firstItem="cwA-9O-2t0" firstAttribute="top" secondItem="Yzc-aZ-PVb" secondAttribute="bottom" constant="213" id="Ho8-Uc-N65"/>
-                            <constraint firstAttribute="trailing" secondItem="Yzc-aZ-PVb" secondAttribute="trailing" id="JTt-AA-Wvc"/>
-                            <constraint firstItem="Yzc-aZ-PVb" firstAttribute="top" secondItem="bhF-WQ-7nN" secondAttribute="bottom" id="S9v-6n-Cez"/>
-                            <constraint firstItem="cwA-9O-2t0" firstAttribute="leading" secondItem="4wP-ZJ-NsT" secondAttribute="leading" id="Tbz-gT-2C0"/>
-                            <constraint firstItem="QWZ-96-oyz" firstAttribute="top" secondItem="Yzc-aZ-PVb" secondAttribute="bottom" id="fa6-FY-5am"/>
-                            <constraint firstItem="Z9K-Ji-pM1" firstAttribute="top" secondItem="cwA-9O-2t0" secondAttribute="bottom" id="k2D-7Y-tTc"/>
-                            <constraint firstItem="QWZ-96-oyz" firstAttribute="leading" secondItem="4wP-ZJ-NsT" secondAttribute="leading" id="lFg-fs-0f5"/>
-                            <constraint firstItem="Yzc-aZ-PVb" firstAttribute="leading" secondItem="4wP-ZJ-NsT" secondAttribute="leading" id="z87-VC-8Og"/>
+                            <constraint firstItem="y10-Lb-m8p" firstAttribute="leading" secondItem="4wP-ZJ-NsT" secondAttribute="leading" id="39e-F8-f4o"/>
+                            <constraint firstItem="Wz6-eB-ALN" firstAttribute="leading" secondItem="4wP-ZJ-NsT" secondAttribute="leading" id="Ayg-Xr-vbN"/>
+                            <constraint firstAttribute="trailing" secondItem="y10-Lb-m8p" secondAttribute="trailing" id="HJ7-cN-Xjo"/>
+                            <constraint firstAttribute="trailing" secondItem="j3Y-Wc-Wmg" secondAttribute="trailing" id="R6Z-tA-HCl"/>
+                            <constraint firstItem="j3Y-Wc-Wmg" firstAttribute="leading" secondItem="4wP-ZJ-NsT" secondAttribute="leading" id="TE6-aE-ywX"/>
+                            <constraint firstAttribute="trailing" secondItem="Wz6-eB-ALN" secondAttribute="trailing" id="Y9L-gR-ySf"/>
+                            <constraint firstItem="j3Y-Wc-Wmg" firstAttribute="top" secondItem="Wz6-eB-ALN" secondAttribute="bottom" id="dan-3M-B9V"/>
+                            <constraint firstItem="j3Y-Wc-Wmg" firstAttribute="top" secondItem="Wz6-eB-ALN" secondAttribute="bottom" id="dh6-KG-eZv"/>
+                            <constraint firstItem="Z9K-Ji-pM1" firstAttribute="top" secondItem="y10-Lb-m8p" secondAttribute="bottom" id="gsv-cM-FX2"/>
+                            <constraint firstItem="Z9K-Ji-pM1" firstAttribute="top" secondItem="j3Y-Wc-Wmg" secondAttribute="bottom" id="gzS-wL-vPf"/>
+                            <constraint firstItem="y10-Lb-m8p" firstAttribute="top" secondItem="Wz6-eB-ALN" secondAttribute="bottom" constant="242" id="rhf-C3-dRE"/>
+                            <constraint firstItem="Wz6-eB-ALN" firstAttribute="top" secondItem="bhF-WQ-7nN" secondAttribute="bottom" id="s2o-8B-fDd"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Waypoint" id="QSz-Qq-WoL">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="aut-Sv-nYl"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="aut-Sv-nYl">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="0ue-YV-E4B" id="rVo-oj-Sl3"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="mapView" destination="cwA-9O-2t0" id="cm1-4y-lST"/>
-                        <outlet property="waypointSearchBar" destination="Yzc-aZ-PVb" id="5bQ-Kh-7Nw"/>
-                        <outlet property="waypointTableView" destination="QWZ-96-oyz" id="xKm-6n-FCw"/>
+                        <outlet property="mapView" destination="y10-Lb-m8p" id="CRb-Zs-Rip"/>
+                        <outlet property="waypointSearchBar" destination="Wz6-eB-ALN" id="5Qu-8T-aTU"/>
+                        <outlet property="waypointTableView" destination="j3Y-Wc-Wmg" id="qWa-zo-HAS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HJr-HF-OhD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2072" y="1233"/>
+            <point key="canvasLocation" x="1977" y="1232"/>
         </scene>
         <!--Way Point Info View Controller-->
         <scene sceneID="LW4-wJ-5FM">
@@ -237,36 +243,35 @@ Travel Date: 10/27/15</string>
                                 <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Wy7-aY-l37">
-                                <rect key="frame" x="0.0" y="237.5" width="600" height="362.5"/>
-                            </mapView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show me the street yo" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="buy-IA-vKl">
-                                <rect key="frame" x="30" y="128" width="540" height="20.5"/>
+                                <rect key="frame" x="30" y="128" width="540" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wmh-Xj-yO0" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="223" width="600" height="377"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="buy-IA-vKl" firstAttribute="leading" secondItem="INf-jr-syU" secondAttribute="leading" constant="279" id="42L-hv-Ot6"/>
                             <constraint firstItem="buy-IA-vKl" firstAttribute="top" secondItem="Eyb-3A-MYg" secondAttribute="bottom" constant="20" id="77g-Ap-AC8"/>
+                            <constraint firstAttribute="trailing" secondItem="Wmh-Xj-yO0" secondAttribute="trailing" id="7k3-2a-gw7"/>
                             <constraint firstItem="Eyb-3A-MYg" firstAttribute="leading" secondItem="INf-jr-syU" secondAttribute="leading" id="7ua-C2-6cr"/>
                             <constraint firstAttribute="trailing" secondItem="buy-IA-vKl" secondAttribute="trailing" constant="279" id="7wQ-7P-99M"/>
                             <constraint firstAttribute="trailing" secondItem="Eyb-3A-MYg" secondAttribute="trailing" id="9FC-X4-Mra"/>
                             <constraint firstItem="dch-fZ-o4m" firstAttribute="top" secondItem="buy-IA-vKl" secondAttribute="bottom" constant="403" id="F0s-ck-UKS"/>
-                            <constraint firstItem="Wy7-aY-l37" firstAttribute="top" secondItem="buy-IA-vKl" secondAttribute="bottom" constant="89" id="K8p-X5-hZJ"/>
                             <constraint firstItem="Eyb-3A-MYg" firstAttribute="leading" secondItem="INf-jr-syU" secondAttribute="leading" id="KXS-Db-kXM"/>
                             <constraint firstAttribute="trailing" secondItem="buy-IA-vKl" secondAttribute="trailing" constant="30" id="Kf8-Mk-Nve"/>
-                            <constraint firstItem="Wy7-aY-l37" firstAttribute="leading" secondItem="INf-jr-syU" secondAttribute="leading" id="MXq-je-C0J"/>
                             <constraint firstItem="buy-IA-vKl" firstAttribute="top" secondItem="Eyb-3A-MYg" secondAttribute="bottom" constant="68" id="Ppy-vw-RuN"/>
-                            <constraint firstItem="dch-fZ-o4m" firstAttribute="top" secondItem="Wy7-aY-l37" secondAttribute="bottom" id="QKe-Ue-tjx"/>
                             <constraint firstAttribute="trailing" secondItem="Eyb-3A-MYg" secondAttribute="trailing" id="SYb-Ew-RlX"/>
+                            <constraint firstItem="dch-fZ-o4m" firstAttribute="top" secondItem="Wmh-Xj-yO0" secondAttribute="bottom" id="VSp-KO-q7n"/>
                             <constraint firstItem="dch-fZ-o4m" firstAttribute="top" secondItem="Eyb-3A-MYg" secondAttribute="bottom" constant="492" id="XM9-gF-y7V"/>
-                            <constraint firstItem="Wy7-aY-l37" firstAttribute="top" secondItem="buy-IA-vKl" secondAttribute="bottom" constant="41" id="f5H-OI-bge"/>
+                            <constraint firstItem="Wmh-Xj-yO0" firstAttribute="leading" secondItem="INf-jr-syU" secondAttribute="leading" id="hfC-Ma-gH9"/>
+                            <constraint firstItem="Wmh-Xj-yO0" firstAttribute="top" secondItem="buy-IA-vKl" secondAttribute="bottom" constant="74" id="hpm-tz-UNf"/>
                             <constraint firstItem="Eyb-3A-MYg" firstAttribute="top" secondItem="RgR-0F-SYm" secondAttribute="bottom" id="i1E-Zh-kPd"/>
-                            <constraint firstItem="Wy7-aY-l37" firstAttribute="top" secondItem="buy-IA-vKl" secondAttribute="bottom" constant="41" id="oNu-WB-qbd"/>
-                            <constraint firstAttribute="trailing" secondItem="Wy7-aY-l37" secondAttribute="trailing" id="qvJ-js-g8m"/>
                             <constraint firstItem="buy-IA-vKl" firstAttribute="leading" secondItem="INf-jr-syU" secondAttribute="leading" constant="30" id="vTy-hf-g7c"/>
                             <constraint firstItem="Eyb-3A-MYg" firstAttribute="top" secondItem="RgR-0F-SYm" secondAttribute="bottom" id="w3x-u6-t00"/>
                         </constraints>
@@ -278,15 +283,15 @@ Travel Date: 10/27/15</string>
                                 <exclude reference="42L-hv-Ot6"/>
                                 <exclude reference="7wQ-7P-99M"/>
                                 <exclude reference="Ppy-vw-RuN"/>
-                                <exclude reference="f5H-OI-bge"/>
-                                <exclude reference="oNu-WB-qbd"/>
                                 <exclude reference="F0s-ck-UKS"/>
                                 <exclude reference="XM9-gF-y7V"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="mapview" destination="Wmh-Xj-yO0" id="8mS-lM-Ilx"/>
                         <outlet property="searchBar" destination="Eyb-3A-MYg" id="afp-kA-W2z"/>
+                        <outlet property="waypointLabel" destination="buy-IA-vKl" id="rfr-lB-cRK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nmf-e0-DIk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -306,7 +311,7 @@ Travel Date: 10/27/15</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You haven't added any waypoints to your trip!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8r0-bk-1Ga">
-                                <rect key="frame" x="30" y="214" width="540" height="20.5"/>
+                                <rect key="frame" x="30" y="214" width="540" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -347,7 +352,7 @@ Travel Date: 10/27/15</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name the trip you are adding" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XmU-v9-yfY">
-                                <rect key="frame" x="189" y="261" width="222" height="20.5"/>
+                                <rect key="frame" x="189" y="261" width="222" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
