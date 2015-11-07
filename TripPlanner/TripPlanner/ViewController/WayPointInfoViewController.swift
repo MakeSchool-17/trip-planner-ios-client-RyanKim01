@@ -40,14 +40,14 @@ class WayPointInfoViewController: UIViewController {
                 print("Place placeID \(place.placeID)")
                 print("Place attributions \(place.attributions)")
                 self.place = place
-                
+                self.waypointLabel.text = place.formattedAddress
                 var marker = GMSMarker()
                 marker.position = place.coordinate
                 marker.title = place.name
                 marker.map = self.mapview
                 
                 self.mapview.animateToLocation(marker.position)
-                
+                self.mapview.animateToZoom(12)
             } else {
                 print("No place details for \(self.placeID)")
             }

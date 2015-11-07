@@ -77,4 +77,18 @@ class CoreDataClient {
         }
     }
     
+    func deleteWaypoints(indexPath: NSIndexPath) -> () {
+        let fetchRequest = NSFetchRequest(entityName: "Waypoint")
+        fetchRequest.returnsObjectsAsFaults = false
+        let waypoints = try! managedObjectContext.executeFetchRequest(fetchRequest)
+        do {
+            try self.managedObjectContext.deleteObject(waypoints[indexPath.row] as! NSManagedObject)
+        } catch let error as NSError {
+            assertionFailure("Error saving context: \(error), \(error.userInfo)")
+        } catch {
+            assertionFailure("Undefined error")
+        }
+    }
+    
+    
 }

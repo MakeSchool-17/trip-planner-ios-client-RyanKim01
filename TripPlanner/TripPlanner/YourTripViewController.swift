@@ -42,6 +42,7 @@ class YourTripViewController: UIViewController, UITableViewDelegate, UITableView
         return cell
     }
     
+    //Segue definition and passing the variable to next viewcontroller
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
       performSegueWithIdentifier("segueToShowWayPoint", sender: placeID)
     }
@@ -53,6 +54,25 @@ class YourTripViewController: UIViewController, UITableViewDelegate, UITableView
             wayPointInfoViewController.placeID = placeID
         }
     }
+    
+    //Sliding the cell to delete
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.Delete) {
+            // handle delete (by removing the data from your array and updating the tableview)
+            do {
+                CoreDataClient(managedObjectContext: self.coreDataStack.managedObjectContext).deleteWaypoints(indexPath)
+                self.waypoints = CoreDataClient(managedObjectContext: self.coreDataStack.managedObjectContext).allWaypoints()
+                self.tripTableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+            } catch let error as NSError  {
+                print("Could not save \(error), \(error.userInfo)")
+            }
+        }
+    }
+    
     
 }
 
